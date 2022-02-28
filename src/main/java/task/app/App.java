@@ -50,6 +50,7 @@ public class App {
                     System.out.println(checkService.createCheck(basket));
                     checkService.createCheck(basket);
                     fileWriter.write(checkService.createCheck(basket));
+
                     return;
                 }
             }

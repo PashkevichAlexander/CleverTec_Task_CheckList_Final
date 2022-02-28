@@ -6,12 +6,22 @@
 
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
-        <servlet-class>servlets.FirstServlet</servlet-class>
+        <servlet-class>servlets.MenuServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>servlets.AddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
