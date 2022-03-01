@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
-        <servlet-class>servlets.MenuServlet</servlet-class>
+        <servlet-class>servlets.FirstServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -14,5 +14,23 @@
         <url-pattern>/FirstServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>servlets.SecondServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/SecondServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TherdServlet</servlet-name>
+        <servlet-class>servlets.TherdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TherdServlet</servlet-name>
+        <url-pattern>/ThredServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

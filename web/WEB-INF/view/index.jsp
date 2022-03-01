@@ -13,18 +13,12 @@
 <body>
 <p>ConsoleShop</p>
 
-<form method="post" action="/CleverTec_Task_CheckList_Final_war_exploded//FirstServlet">
+<form method="post" action="/CleverTec_Task_CheckList_Final_war_exploded//SecondServlet">
     <p><input type="submit" value="AddOrder"></p>
 </form>
 
-<form method="post" action="/CleverTec_Task_CheckList_Final_war_exploded//FirstServlet">
-    <p><input type="submit" name="doDelete" value="DeleteOrder"></p>
-</form>
-
-<form method="post" action="/CleverTec_Task_CheckList_Final_war_exploded//FirstServlet">
-<p><input type="submit" value="BuyOrder"></p>
-
+<form method="post" action="/CleverTec_Task_CheckList_Final_war_exploded//TherdServlet">
+    <p><input type="submit"  value="DeleteOrder"></p>
 </form>
 </body>
-
 </html>
