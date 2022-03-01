@@ -13,5 +13,10 @@
 <body>
 
 <p>Hello3</p>
+<form method="post" action="/delete">
+    <input type="hidden" name="_method" value="delete">
+    <input type="text" name="field">
+    <p><input type="submit" value="DeleteOrder"></p>
+</form>
 </body>
 </html>
