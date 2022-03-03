@@ -13,5 +13,11 @@
 <body>
 
 <p>Hello2</p>
+
+<form method="post" action="/buy">
+    <input type="hidden" name="_method" value="buy">
+    <input type="text" name="field">
+    <p><input type="submit" value="BuyOrder"></p>
+</form>
 </body>
 </html>

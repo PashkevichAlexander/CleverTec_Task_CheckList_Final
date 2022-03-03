@@ -6,9 +6,9 @@
 <body>
 <p>ConsoleShop</p>
 
-<p><a href="/indexToAdd">Add</a></p>
+<p><a href="/add">Add</a></p>
 <p><a href="/delete">Delete</a></p>
-<p><a href="/indexToBuy">Buy</a></p>
+<p><a href="/buy">Buy</a></p>
 
 </body>
 

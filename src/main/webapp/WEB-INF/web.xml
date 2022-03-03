@@ -6,7 +6,7 @@
 
 
     <servlet>
-        <servlet-name>FirstServlet</servlet-name>
+        <servlet-name>MenuServlet</servlet-name>
         <servlet-class>servlets.MenuServlet</servlet-class>
     </servlet>
 
@@ -14,16 +14,38 @@
         <servlet-name>DeleteServlet</servlet-name>
         <servlet-class>servlets.DeleteServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>servlets.AddServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BuyServlet</servlet-name>
+        <servlet-class>servlets.BuyServlet</servlet-class>
+    </servlet>
+
+
+
 
     <servlet-mapping>
-        <servlet-name>FirstServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/menu</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>BuyServlet</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
 
 </web-app>
