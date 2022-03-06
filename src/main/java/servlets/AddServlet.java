@@ -19,8 +19,8 @@ public class AddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("post method here!!!");
 
-        int itemId = Integer.parseInt(req.getParameter("char"));
-        int quantity = Integer.parseInt(req.getParameter("char"));
+        int itemId = Integer.parseInt(req.getParameter("add1"));
+        int quantity = Integer.parseInt(req.getParameter("add2"));
         basketService.addOrder(itemId, quantity, basketSingleton.getBasket());
 
 
