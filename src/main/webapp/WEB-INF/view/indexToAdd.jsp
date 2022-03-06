@@ -6,14 +6,23 @@
 </head>
 <body>
 
-<p>AddOrder</p>
+<h1>ConsoleShop</h1>
+
+<h2>AddOrder</h2>
 
 <form method="post" action="/add">
-    <input type="hidden" name="_method" value="add1">
-    <input type="text" name="field">
-    <input type="hidden" name="_method" value="add2">
-    <input type="text" name="field">
+    <input type="hidden" name="_method" value="add">
+    <input type="text" name="add1">
+    <input type="hidden" name="_method" value="add">
+    <input type="text" name="add2">
     <p><input type="submit" value="AddOrder"></p>
+</form>
+
+<form method="post" action="/delete">
+    <p><input type="submit" value="DeleteOrder"></p>
+</form>
+<form method="post" action="/buy">
+    <p><input type="submit" value="BuyOrder"></p>
 </form>
 </body>
 </html>

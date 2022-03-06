@@ -4,11 +4,18 @@
     <title>ConsoleShop</title>
 </head>
 <body>
-<p>ConsoleShop</p>
+<H1>ConsoleShop</H1>
 
-<p><a href="/add">Add</a></p>
-<p><a href="/delete">Delete</a></p>
-<p><a href="/buy">Buy</a></p>
+<form method="post" action="/add">
+    <p><input type="submit" value="AddOrder"></p>
+</form>
+<form method="post" action="/delete">
+    <p><input type="submit" value="DeleteOrder"></p>
+</form>
+<form method="post" action="/buy">
+    <p><input type="submit" value="BuyOrder"></p>
+</form>
+
 
 </body>
 

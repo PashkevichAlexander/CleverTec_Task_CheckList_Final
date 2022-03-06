@@ -1,18 +1,19 @@
 package Singleton;
 
 import task.entity.Basket;
+import task.entity.DiscountCard;
 
 public class BasketSingleton {
     private static BasketSingleton instance;
     private Basket basket;
 
-    private BasketSingleton() {
-        basket = new Basket();
+    private BasketSingleton(DiscountCard discountCard) {
+        basket = new Basket(discountCard);
     }
 
-    public static BasketSingleton getInstance(){
+    public static BasketSingleton getInstance(DiscountCard discountCard){
         if(instance == null){
-            instance = new BasketSingleton();
+            instance = new BasketSingleton(discountCard);
         }
         return instance;
     }

@@ -1,6 +1,7 @@
 package servlets;
 
 import Singleton.BasketSingleton;
+import task.entity.DiscountCard;
 import task.repository.impl.XMLRepository;
 import task.service.BasketService;
 
@@ -11,9 +12,11 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
 
     private static final String FILEPATH = "src/main/resources/repository.xml";
-    BasketSingleton basketSingleton = BasketSingleton.getInstance();
+    DiscountCard discountCard = new DiscountCard(true);
+    BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
     XMLRepository xmlRepository = new XMLRepository(FILEPATH);
     BasketService basketService = new BasketService(xmlRepository);
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,8 +26,10 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int itemId = req.getIntHeader("add1");
-        int quantity = req.getIntHeader("add2");
+        Integer itemId = Integer.valueOf(req.getParameter("add1"));
+        Integer quantity = Integer.valueOf(req.getParameter("add2"));
+        System.out.println(itemId);
+        System.out.println(quantity);
         basketService.addOrder(itemId, quantity, basketSingleton.getBasket());
 
 

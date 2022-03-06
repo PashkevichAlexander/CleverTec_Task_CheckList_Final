@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Asus
-  Date: 28.02.2022
-  Time: 19:10
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,11 +7,17 @@
 <body>
 
 
-<p>Hello2</p>
+<H1>ConsoleShop</H1>
 
+<h2>Buy</h2>
+
+<form method="post" action="/add">
+    <p><input type="submit" value="AddOrder"></p>
+</form>
+<form method="post" action="/delete">
+    <p><input type="submit" value="DeleteOrder"></p>
+</form>
 <form method="post" action="/buy">
-    <input type="hidden" name="_method" value="buy">
-    <input type="text" name="field">
     <p><input type="submit" value="BuyOrder"></p>
 </form>
 
