@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
 
     private static final String FILEPATH = "src/main/resources/repository.xml";
-    DiscountCard discountCard = new DiscountCard(true);
+    DiscountCard discountCard = new DiscountCard();
     BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
     XMLRepository xmlRepository = new XMLRepository(FILEPATH);
     BasketService basketService = new BasketService(xmlRepository);

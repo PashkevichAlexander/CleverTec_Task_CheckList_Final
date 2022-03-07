@@ -30,8 +30,8 @@ public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+        int itemId = Integer.parseInt(req.getParameter("delete"));
+        basketService.removeOrder(itemId,basketSingleton.getBasket());
         req.getRequestDispatcher("/WEB-INF/view/indexToDelete.jsp").forward(req, resp);
     }
 }

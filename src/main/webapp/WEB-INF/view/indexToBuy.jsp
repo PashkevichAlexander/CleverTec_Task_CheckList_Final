@@ -11,15 +11,17 @@
 
 <h2>Buy</h2>
 
-<form method="post" action="/add">
+<form method="get" action="/add">
     <p><input type="submit" value="AddOrder"></p>
 </form>
-<form method="post" action="/delete">
+<form method="get" action="/delete">
     <p><input type="submit" value="DeleteOrder"></p>
 </form>
 <form method="post" action="/buy">
     <p><input type="submit" value="BuyOrder"></p>
 </form>
+
+<p>${check}</p>
 
 </body>
 </html>

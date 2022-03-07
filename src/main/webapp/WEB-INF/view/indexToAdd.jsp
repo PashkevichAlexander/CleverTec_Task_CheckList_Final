@@ -18,10 +18,10 @@
     <p><input type="submit" value="AddOrder"></p>
 </form>
 
-<form method="post" action="/delete">
+<form method="get" action="/delete">
     <p><input type="submit" value="DeleteOrder"></p>
 </form>
-<form method="post" action="/buy">
+<form method="get" action="/buy">
     <p><input type="submit" value="BuyOrder"></p>
 </form>
 </body>
