@@ -1,20 +1,25 @@
 package task.service;
 
+import singleton.BasketSingleton;
 import task.entity.Basket;
+import task.entity.Check;
+import task.entity.DiscountCard;
 import task.entity.DiscountsState;
 import task.repository.Repository;
 
-import java.util.Date;
 import java.util.stream.Collectors;
 
 public class CheckService {
     private final Repository repository;
+    private DiscountCard discountCard =  new DiscountCard();
+    private BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
 
     public CheckService(Repository repository) {
         this.repository = repository;
     }
+    private Check check = new Check();
 
-    public String createCheck(Basket basket) {
+    public Check createCheck(Basket basket) {
         double totalSum;
         String line = "-------------------------------------------";
         String newLine = "\n";
@@ -25,16 +30,11 @@ public class CheckService {
             totalSum = total;
         }
         double discount = total - totalSum;
-        return line + newLine +
-                "SuperMarket 123" + newLine +
-                new Date() + newLine +
-                line + newLine +
-                String.format("%-10s %-10s %-10s %-10s", "number", "name", "cost", "totalCost") + newLine +
-                createItemList(basket) + newLine +
-                line + newLine +
-                "Total = " + total + newLine +
-                "TO PAY = " + totalSum + newLine +
-                "Discount = " + discount;
+        check.setItemListForCheck(basketSingleton.getBasket().getItems());
+        check.setTotal(total);
+        check.setTotalSum(totalSum);
+        check.setDiscount(discount);
+        return check;
     }
 
 

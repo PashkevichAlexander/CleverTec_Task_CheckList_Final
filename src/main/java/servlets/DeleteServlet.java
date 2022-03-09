@@ -1,6 +1,6 @@
 package servlets;
 
-import Singleton.BasketSingleton;
+import singleton.BasketSingleton;
 import task.entity.DiscountCard;
 import task.repository.impl.XMLRepository;
 import task.service.BasketService;

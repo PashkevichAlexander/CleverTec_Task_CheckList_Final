@@ -1,6 +1,7 @@
 package servlets;
 
-import Singleton.BasketSingleton;
+import singleton.BasketSingleton;
+import task.entity.Check;
 import task.entity.DiscountCard;
 import task.repository.impl.XMLRepository;
 import task.service.CheckService;
@@ -17,7 +18,7 @@ public class BuyServlet extends HttpServlet {
     private DiscountCard discountCard = new DiscountCard(true);
     BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
     XMLRepository xmlRepository = new XMLRepository(FILEPATH);
-    private CheckService checkService = new CheckService(xmlRepository);
+    CheckService checkService = new CheckService(xmlRepository);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,9 +27,6 @@ public class BuyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String check = checkService.createCheck(basketSingleton.getBasket());
-        req.setAttribute("check", check);
-        System.out.println("this method is working");
-        req.getRequestDispatcher("/WEB-INF/view/indexToBuy.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/view/indexCheck.jsp").forward(req,resp);
     }
 }

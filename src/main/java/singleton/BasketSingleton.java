@@ -1,4 +1,4 @@
-package Singleton;
+package singleton;
 
 import task.entity.Basket;
 import task.entity.DiscountCard;

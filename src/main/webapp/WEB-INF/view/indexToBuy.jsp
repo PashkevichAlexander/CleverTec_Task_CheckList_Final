@@ -21,7 +21,5 @@
     <p><input type="submit" value="BuyOrder"></p>
 </form>
 
-<p>${check}</p>
-
 </body>
 </html>
