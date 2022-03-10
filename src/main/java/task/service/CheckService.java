@@ -51,6 +51,7 @@ public class CheckService {
                     return String.format("%-10s %-10s %-10s %-10s", entry.getValue(), entry.getKey().getName(), cost, totalCost);
                 })
                 .collect(Collectors.joining("\n"));
+
     }
 
     private double calculateTotal(Basket basket) {
