@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>ConsoleShop</title>
@@ -16,7 +15,5 @@
     <p><input type="submit" value="BuyOrder"></p>
 </form>
 
-
 </body>
-
 </html>

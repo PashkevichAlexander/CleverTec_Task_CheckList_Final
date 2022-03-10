@@ -12,12 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DeleteServlet extends HttpServlet {
-
-
     private static final String FILEPATH = "src/main/resources/repository.xml";
 
     DiscountCard discountCard = new DiscountCard(true);
-
     BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
     XMLRepository xmlRepository = new XMLRepository(FILEPATH);
     BasketService basketService = new BasketService(xmlRepository);
@@ -30,6 +27,7 @@ public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //delete -> deleteId
         int itemId = Integer.parseInt(req.getParameter("delete"));
         basketService.removeOrder(itemId,basketSingleton.getBasket());
         req.getRequestDispatcher("/WEB-INF/view/indexToDelete.jsp").forward(req, resp);

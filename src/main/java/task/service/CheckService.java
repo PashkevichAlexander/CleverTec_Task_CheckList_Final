@@ -13,11 +13,11 @@ public class CheckService {
     private final Repository repository;
     private DiscountCard discountCard =  new DiscountCard();
     private BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
+    private Check check = new Check();
 
     public CheckService(Repository repository) {
         this.repository = repository;
     }
-    private Check check = new Check();
 
     public Check createCheck(Basket basket) {
         double totalSum;
@@ -30,14 +30,15 @@ public class CheckService {
             totalSum = total;
         }
         double discount = total - totalSum;
-        check.setItemListForCheck(basketSingleton.getBasket().getItems());
+        //use constructor not setter
+        check.setMap(basketSingleton.getBasket().getItems());
         check.setTotal(total);
         check.setTotalSum(totalSum);
         check.setDiscount(discount);
         return check;
     }
 
-
+//if it did not use that delete
     private String createItemList(Basket basket) {
         return basket.getItems()
                 .entrySet()

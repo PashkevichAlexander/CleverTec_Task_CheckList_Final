@@ -8,7 +8,8 @@ import java.util.Map;
 @Getter
 @Setter
 public class Check {
-    Map<Item, Integer> itemListForCheck;
+    //use modificators
+    Map<Item, Integer> map;
     double total;
     double totalSum;
     double discount;
