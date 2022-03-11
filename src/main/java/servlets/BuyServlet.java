@@ -15,10 +15,9 @@ import java.io.IOException;
 public class BuyServlet extends HttpServlet {
     private static final String FILEPATH = "src/main/resources/repository.xml";
 
-    private final DiscountCard discountCard = new DiscountCard(true);
-    private final BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
+    private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
     private final XMLRepository xmlRepository = new XMLRepository(FILEPATH);
-    private final CheckService checkService = new CheckService(xmlRepository);
+    private final CheckService checkService = new CheckService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,7 +26,15 @@ public class BuyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+
+        DiscountCard discountCard = new DiscountCard(Boolean.getBoolean(req.getParameter("discountState")));
+
+        basketSingleton.getBasket().setCard(discountCard);
+
         Check check = checkService.createCheck(basketSingleton.getBasket());
+
         req.setAttribute("check", check);
         req.getRequestDispatcher("/WEB-INF/view/indexToCheck.jsp").forward(req, resp);
     }

@@ -8,7 +8,7 @@ dc<html>
 <h2>DeleteOrder</h2>
 
 <form method="post" action="/delete">
-    <input type="text" name="delete">
+    <input type="text" name="deleteId">
     <p><input type="submit" value="DeleteOrder"></p>
 </form>
 <form method="get" action="/menu">

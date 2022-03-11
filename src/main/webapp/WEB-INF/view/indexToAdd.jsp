@@ -9,8 +9,8 @@
 <h2>AddOrder</h2>
 
 <form method="post" action="/add">
-    <input type="text" name="add1">
-    <input type="text" name="add2">
+    <input type="text" name="itemId">
+    <input type="text" name="quantity">
     <p><input type="submit" value="AddOrder"></p>
 </form>
 

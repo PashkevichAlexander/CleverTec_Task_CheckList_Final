@@ -12,11 +12,9 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
     private static final String FILEPATH = "src/main/resources/repository.xml";
 
-    //not use default modificator
-    DiscountCard discountCard = new DiscountCard();
-    BasketSingleton basketSingleton = BasketSingleton.getInstance(discountCard);
-    XMLRepository xmlRepository = new XMLRepository(FILEPATH);
-    BasketService basketService = new BasketService(xmlRepository);
+    private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
+    private final XMLRepository xmlRepository = new XMLRepository(FILEPATH);
+    private final BasketService basketService = new BasketService(xmlRepository);
 
 
     @Override
@@ -26,9 +24,8 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//rename add1 and add2 to something logical
-        Integer itemId = Integer.valueOf(req.getParameter("add1"));
-        Integer quantity = Integer.valueOf(req.getParameter("add2"));
+        Integer itemId = Integer.valueOf(req.getParameter("itemId"));
+        Integer quantity = Integer.valueOf(req.getParameter("quantity"));
         //sout -> logger
         System.out.println(itemId);
         System.out.println(quantity);
