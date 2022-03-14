@@ -3,7 +3,6 @@ package servlets;
 import singleton.BasketSingleton;
 import task.entity.Check;
 import task.entity.DiscountCard;
-import task.repository.impl.XMLRepository;
 import task.service.CheckService;
 
 import javax.servlet.ServletException;
@@ -13,10 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class BuyServlet extends HttpServlet {
-    private static final String FILEPATH = "src/main/resources/repository.xml";
-
     private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
-    private final XMLRepository xmlRepository = new XMLRepository(FILEPATH);
     private final CheckService checkService = new CheckService();
 
     @Override
@@ -27,9 +23,8 @@ public class BuyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-
         DiscountCard discountCard = new DiscountCard(Boolean.getBoolean(req.getParameter("discountState")));
+        System.out.println(Boolean.getBoolean(req.getParameter("discountState")));
 
         basketSingleton.getBasket().setCard(discountCard);
 

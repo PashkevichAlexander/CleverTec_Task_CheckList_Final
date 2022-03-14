@@ -5,7 +5,6 @@ import task.entity.Basket;
 import task.entity.Check;
 import task.entity.DiscountsState;
 
-import java.util.stream.Collectors;
 
 public class CheckService {
     private final BasketSingleton basketSingleton = BasketSingleton.getInstance();

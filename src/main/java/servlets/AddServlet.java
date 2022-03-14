@@ -1,7 +1,6 @@
 package servlets;
 
 import singleton.BasketSingleton;
-import task.entity.DiscountCard;
 import task.repository.impl.XMLRepository;
 import task.service.BasketService;
 
@@ -24,11 +23,8 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer itemId = Integer.valueOf(req.getParameter("itemId"));
-        Integer quantity = Integer.valueOf(req.getParameter("quantity"));
-        //sout -> logger
-        System.out.println(itemId);
-        System.out.println(quantity);
+        int itemId = Integer.parseInt(req.getParameter("itemId"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
         basketService.addOrder(itemId, quantity, basketSingleton.getBasket());
 
 
