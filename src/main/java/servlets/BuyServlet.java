@@ -23,8 +23,9 @@ public class BuyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DiscountCard discountCard = new DiscountCard(Boolean.getBoolean(req.getParameter("discountState")));
-        System.out.println(Boolean.getBoolean(req.getParameter("discountState")));
+        String discountState = req.getParameter("discountState");
+
+        DiscountCard discountCard = new DiscountCard(Boolean.parseBoolean(discountState));
 
         basketSingleton.getBasket().setCard(discountCard);
 
