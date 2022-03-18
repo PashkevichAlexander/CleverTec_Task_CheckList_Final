@@ -19,6 +19,13 @@ public class Item {
     private int cost;
     private Set<DiscountsState> discounts;
 
+    public Item(int id, String name, int cost, String discounts) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+        this.discounts = Set.of(DiscountsState.valueOf(discounts));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

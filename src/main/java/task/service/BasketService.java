@@ -15,6 +15,7 @@ public class BasketService {
 
     public void addOrder(int id, int numbers, Basket basket) {
         Optional<Item> optionalItem = repository.find(id);
+
         if (optionalItem.isPresent()) {
             Item item = optionalItem.get();
             if (basket.getItems().containsKey(item)) {
