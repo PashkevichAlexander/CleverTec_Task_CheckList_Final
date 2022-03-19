@@ -1,7 +1,7 @@
 package servlets;
 
-import singleton.BasketSingleton;
-import task.repository.impl.XMLRepository;
+import task.singleton.BasketSingleton;
+import task.repository.impl.DatabaseRepository;
 import task.service.BasketService;
 
 import javax.servlet.ServletException;
@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DeleteServlet extends HttpServlet {
-    private static final String FILEPATH = "src/main/resources/repository.xml";
 
-    BasketSingleton basketSingleton = BasketSingleton.getInstance();
-    XMLRepository xmlRepository = new XMLRepository(FILEPATH);
-    BasketService basketService = new BasketService(xmlRepository);
+    private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
+    private final DatabaseRepository databaseRepository = new DatabaseRepository();
+    private final BasketService basketService = new BasketService(databaseRepository);
 
 
     @Override

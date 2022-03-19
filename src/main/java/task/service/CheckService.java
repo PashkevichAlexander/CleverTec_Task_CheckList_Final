@@ -1,6 +1,6 @@
 package task.service;
 
-import singleton.BasketSingleton;
+import task.singleton.BasketSingleton;
 import task.entity.Basket;
 import task.entity.Check;
 import task.entity.DiscountsState;

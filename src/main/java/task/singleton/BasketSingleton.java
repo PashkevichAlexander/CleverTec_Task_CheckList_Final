@@ -1,4 +1,4 @@
-package singleton;
+package task.singleton;
 
 import task.entity.Basket;
 

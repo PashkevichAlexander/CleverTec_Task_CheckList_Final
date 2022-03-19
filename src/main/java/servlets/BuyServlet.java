@@ -1,6 +1,6 @@
 package servlets;
 
-import singleton.BasketSingleton;
+import task.singleton.BasketSingleton;
 import task.entity.Check;
 import task.entity.DiscountCard;
 import task.service.CheckService;

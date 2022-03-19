@@ -1,7 +1,7 @@
 package servlets;
 
-import singleton.BasketSingleton;
-import task.repository.impl.XMLRepository;
+import task.singleton.BasketSingleton;
+import task.repository.impl.DatabaseRepository;
 import task.service.BasketService;
 
 import javax.servlet.*;
@@ -9,11 +9,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 public class AddServlet extends HttpServlet {
-    private static final String FILEPATH = "src/main/resources/repository.xml";
 
     private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
-    private final XMLRepository xmlRepository = new XMLRepository(FILEPATH);
-    private final BasketService basketService = new BasketService(xmlRepository);
+    private final DatabaseRepository databaseRepository = new DatabaseRepository();
+    private final BasketService basketService = new BasketService(databaseRepository);
 
 
     @Override
