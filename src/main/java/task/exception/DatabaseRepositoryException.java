@@ -1,7 +1,8 @@
 package task.exception;
 
-public class DatabaseRepositoryException extends Exception {
-    public DatabaseRepositoryException( String message){
-        super(message);
+public class DatabaseRepositoryException extends RuntimeException {
+    public DatabaseRepositoryException(String message, Throwable cause) {
+        super(message, cause);
     }
+
 }

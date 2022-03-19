@@ -1,6 +1,7 @@
 package task.repository.impl;
 
 import task.entity.Item;
+import task.exception.DatabaseRepositoryException;
 import task.repository.Repository;
 import task.repository.db.DatabaseConnectionProvider;
 
@@ -30,7 +31,7 @@ public class DatabaseRepository implements Repository {
                 }
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw new DatabaseRepositoryException("a",throwables);
         }
         return Optional.empty();
     }
