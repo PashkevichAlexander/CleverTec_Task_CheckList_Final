@@ -1,6 +1,7 @@
 package task.repository.impl;
 
 import task.entity.Item;
+import task.entity.NewDiscountCard;
 import task.exception.DatabaseRepositoryException;
 import task.repository.Repository;
 import task.repository.db.DatabaseConnectionProvider;
@@ -31,7 +32,37 @@ public class DatabaseRepository implements Repository {
                 }
             }
         } catch (SQLException throwables) {
-            throw new DatabaseRepositoryException("a",throwables);
+            throw new DatabaseRepositoryException("a", throwables);
+        }
+        return Optional.empty();
+    }
+
+    public Optional<NewDiscountCard> findDiscount(int id) {
+        try (Connection connection = DatabaseConnectionProvider.getConnection()) {
+            final Statement statement = connection.createStatement();
+            final ResultSet resultSet = statement.executeQuery("""
+                    select * from userDiscountId
+                    """);
+
+            while (resultSet.next()) {
+                if (resultSet.getInt(2) == id) {
+                    final Statement statement1 = connection.createStatement();
+                    final ResultSet resultSet1 = statement1.executeQuery("""
+                            select * from discountCard
+                            """);
+                    while (resultSet1.next()) {
+                        if (resultSet.getInt(1) == resultSet1.getInt(1)) {
+                            NewDiscountCard newDiscountCard = new NewDiscountCard(
+                                    resultSet1.getInt(1),
+                                    resultSet1.getString(2),
+                                    resultSet1.getInt(3));
+                            return Optional.of(newDiscountCard);
+                        }
+                    }
+                }
+            }
+        } catch (SQLException throwables) {
+            throw new DatabaseRepositoryException("can't find Discount ID", throwables);
         }
         return Optional.empty();
     }
