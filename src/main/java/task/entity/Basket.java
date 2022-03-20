@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ import java.util.Map;
 public class Basket {
     private Map<Item, Integer> items;
     //move card to another
-    private DiscountCard card;
+    private Optional<NewDiscountCard> card;
 
     public Basket( ) {
         this.items = new HashMap<>();

@@ -1,8 +1,8 @@
 package servlets;
 
+import task.repository.impl.DatabaseRepository;
 import task.singleton.BasketSingleton;
 import task.entity.Check;
-import task.entity.DiscountCard;
 import task.service.CheckService;
 
 import javax.servlet.ServletException;
@@ -14,6 +14,7 @@ import java.io.IOException;
 public class BuyServlet extends HttpServlet {
     private final BasketSingleton basketSingleton = BasketSingleton.getInstance();
     private final CheckService checkService = new CheckService();
+    private final DatabaseRepository databaseRepository = new DatabaseRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,11 +24,8 @@ public class BuyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String discountState = req.getParameter("discountState");
-
-        DiscountCard discountCard = new DiscountCard(Boolean.parseBoolean(discountState));
-
-        basketSingleton.getBasket().setCard(discountCard);
+        int discountId = Integer.parseInt(req.getParameter("discountId"));
+        basketSingleton.getBasket().setCard(databaseRepository.findDiscount(discountId));
 
         Check check = checkService.createCheck(basketSingleton.getBasket());
 

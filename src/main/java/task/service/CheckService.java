@@ -15,7 +15,7 @@ public class CheckService {
     public Check createCheck(Basket basket) {
         double totalSum;
         double total = calculateTotal(basket);
-        if (basket.getCard().isId()) {
+        if (basket.getCard().isPresent()) {
             totalSum = calculateToPay(basket);
         } else {
             totalSum = total;
@@ -33,13 +33,14 @@ public class CheckService {
     }
 
     private double calculateToPay(Basket basket) {
+
         return basket.getItems()
                 .entrySet()
                 .stream()
                 .mapToDouble(entry -> {
                     double cost = entry.getKey().getCost() * entry.getValue();
-                    if (entry.getKey().getDiscounts().contains(DiscountsState.DISCOUNT_ALLOWED)) {
-                        return cost - cost / 10;
+                    if (entry.getKey().getDiscounts().contains(DiscountsState.DISCOUNT_ALLOWED) &&  basket.getCard().isPresent()) {
+                        return cost - cost/basket.getCard().get().getValueOfDiscount();
                     }
                     return cost;
                 })
