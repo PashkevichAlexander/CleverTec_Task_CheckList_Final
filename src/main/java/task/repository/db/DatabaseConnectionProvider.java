@@ -14,8 +14,8 @@ public class DatabaseConnectionProvider {
         try {
             return DriverManager.getConnection(url, user, password);
         } catch (SQLException sqlEx) {
-            // Дописать url user and password
-            throw new RuntimeException("can't creat connection",sqlEx);
+            String text = String.format("\n User ={url: %s, user: %s, password: %s}",url,user,password);
+            throw new RuntimeException("can't creat connection" + text,sqlEx);
         }
     }
 }

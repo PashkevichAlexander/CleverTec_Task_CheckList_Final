@@ -38,6 +38,7 @@ public class DatabaseRepository implements Repository {
     }
 
     public Optional<NewDiscountCard> findDiscount(int id) {
+
         try (Connection connection = DatabaseConnectionProvider.getConnection()) {
             final Statement statement = connection.createStatement();
             final ResultSet resultSet = statement.executeQuery("""
