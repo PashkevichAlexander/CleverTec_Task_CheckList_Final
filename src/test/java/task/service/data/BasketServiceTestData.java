@@ -1,6 +1,5 @@
 package task.service.data;
 
-import task.singleton.BasketSingleton;
 import task.entity.Basket;
 import task.entity.DiscountsState;
 import task.entity.Item;
@@ -15,8 +14,7 @@ public class BasketServiceTestData {
     }
 
     public static Basket getAnyBasket() {
-        BasketSingleton basketSingleton = BasketSingleton.getInstance();
-        return basketSingleton.getBasket();
+        return new Basket();
     }
 
     public static int getId() {

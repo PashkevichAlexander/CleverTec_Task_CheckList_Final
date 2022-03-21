@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewDiscountCard {
+public class DiscountCard {
     private int id;
     private String typeOfDiscount;
     private int valueOfDiscount;

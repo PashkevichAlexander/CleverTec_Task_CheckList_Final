@@ -1,7 +1,7 @@
 package task.repository.impl;
 
 import task.entity.Item;
-import task.entity.NewDiscountCard;
+import task.entity.DiscountCard;
 import task.exception.DatabaseRepositoryException;
 import task.repository.Repository;
 import task.repository.db.DatabaseConnectionProvider;
@@ -37,7 +37,7 @@ public class DatabaseRepository implements Repository {
         return Optional.empty();
     }
 
-    public Optional<NewDiscountCard> findDiscount(int id) {
+    public Optional<DiscountCard> findDiscount(int id) {
 
         try (Connection connection = DatabaseConnectionProvider.getConnection()) {
             final Statement statement = connection.createStatement();
@@ -53,11 +53,11 @@ public class DatabaseRepository implements Repository {
                             """);
                     while (resultSet1.next()) {
                         if (resultSet.getInt(1) == resultSet1.getInt(1)) {
-                            NewDiscountCard newDiscountCard = new NewDiscountCard(
+                            DiscountCard discountCard = new DiscountCard(
                                     resultSet1.getInt(1),
                                     resultSet1.getString(2),
                                     resultSet1.getInt(3));
-                            return Optional.of(newDiscountCard);
+                            return Optional.of(discountCard);
                         }
                     }
                 }

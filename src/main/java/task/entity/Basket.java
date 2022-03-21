@@ -14,10 +14,11 @@ import java.util.Optional;
 
 public class Basket {
     private Map<Item, Integer> items;
-    //move card to another
-    private Optional<NewDiscountCard> card;
+    private Optional<DiscountCard> card;
 
     public Basket( ) {
         this.items = new HashMap<>();
     }
+
+
 }
