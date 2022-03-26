@@ -25,10 +25,10 @@
                 </div>
                 <p><input type="submit" value="AddOrder"></p>
             </form>
-            <form method="get" action="/menu">
-                <p><input type="submit" value="Menu"></p>
-            </form>
         </div>
+        <form method="get" action="/menu">
+            <p><input type="submit" value="Menu"></p>
+        </form>
     </form>
 
 </div>
