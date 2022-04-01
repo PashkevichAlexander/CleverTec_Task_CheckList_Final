@@ -11,43 +11,37 @@
     <title>ConsoleShop</title></head>
 <body>
 <div class="mx-auto" style="width: 400px;">
-<h2>SuperMarket</h2>
-<h2><%= new Date()%></h2>
+    <h2>SuperMarket</h2>
+    <h2><%= new Date()%>
+    </h2>
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                id
-            </div>
-            <div class="col-sm">
-                name
-            </div>
-            <div class="col-sm">
-                cost
-            </div>
-            <div class="col-sm">
-                value
-            </div>
-        </div>
-        <c:forEach items="${check.map}" var="entry">
-            <tr>
-                <div class="row">
-                    <div class="col-sm">${entry.key.id}</div>
-                    <div class="col-sm">${entry.key.name}</div>
-                    <div class="col-sm">${entry.key.cost}</div>
-                    <div class="col-sm">${entry.value}</div>
+        <div class="table">
+            <div class="row">
+                <div class="col-sm">
+                    id
                 </div>
-            </tr>
-        </c:forEach>
+                <div class="col-sm">
+                    name
+                </div>
+                <div class="col-sm">
+                    cost
+                </div>
+                <div class="col-sm">
+                    value
+                </div>
+            </div>
+            <c:forEach items="${check.map}" var="entry">
+                <tr>
+                    <div class="row">
+                        <div class="col-sm">${entry.key.id}</div>
+                        <div class="col-sm">${entry.key.name}</div>
+                        <div class="col-sm">${entry.key.cost}</div>
+                        <div class="col-sm">${entry.value}</div>
+                    </div>
+                </tr>
+            </c:forEach>
+        </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 </html>
